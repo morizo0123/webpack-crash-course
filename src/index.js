@@ -1,4 +1,12 @@
 import _ from 'lodash'
+import Lion from './utilities'
+
+// 衝突を防ぐ
+// import { NAME as NAME_OF_HAM } from './utilities'
+// import * as hoge from './utilities'
+// import { NAME, NiJou } from './utilities'
+
+console.log(Lion.say())
 
 function component() {
   const elem = document.createElement('div');
