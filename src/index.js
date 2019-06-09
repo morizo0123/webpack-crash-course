@@ -1,6 +1,7 @@
 import _ from 'lodash'
 import Lion from './utilities'
 import './style.css'
+import './style.scss'
 import bad from './bad.png'
 
 // 衝突を防ぐ
