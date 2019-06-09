@@ -1,4 +1,5 @@
 const path = require('path');
+const htmlWebpackPlugin = require('html-webpack-plugin');
 
 const outputPath = path.resolve(__dirname, 'dist');
 
@@ -10,6 +11,11 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: "babel-loader"
+      },
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
@@ -29,10 +35,20 @@ module.exports = {
           limit: 2048,
           name: './images/[name].[ext]'
         }
+      },
+      {
+        test: /\.html$/,
+        loader: 'html-loader'
       }
     ]
   },
   devServer: {
     contentBase: outputPath
-  }
+  },
+  plugins: [
+    new htmlWebpackPlugin({
+      template: './src/index.html',
+      filename: './index.html'
+    })
+  ]
 }
